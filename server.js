@@ -2,9 +2,9 @@ import * as dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import morgan from "morgan";
+import artistRouter from "./routes/artistRouter.js";
 
 const app = express();
-const port = 5100;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -19,12 +19,9 @@ app.get("/", (req, res) => {
   res.send("Hello, Express with ES Modules!");
 });
 
-app.post("/", (req, res) => {
-  console.log("Received JSON data:", req);
-  res.status(200).json({ message: "data received", data: req.body });
-});
+app.use("/api/v1/", artistRouter);
 
 // Start the server and listen on the specified port
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running on http://localhost:${process.env.PORT}`);
 });
