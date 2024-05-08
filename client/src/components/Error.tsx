@@ -1,5 +1,6 @@
 import { useRouteError, Link, isRouteErrorResponse } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import "../utils/animations.css"
 
 const Error = () => {
   const error = useRouteError();
@@ -8,7 +9,7 @@ const Error = () => {
     return (
       <main className="grid min-h-[100vh] place-items-center px-8">
         <div className="text-center">
-          <p className="text-9xl font-semibold text-primary">404</p>
+          <p className="text-9xl font-semibold text-primary text-flicker-in-glow">404</p>
           <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
             Page not found
           </h1>

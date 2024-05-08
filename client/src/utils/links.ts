@@ -5,8 +5,8 @@ type Link = {
   
   export const links: Link[] = [
     { href: "/", label: "live" },
-    { href: "/about", label: "music" },
-    { href: "/products", label: "charts" },
-    { href: "/cart", label: "events" },
-    { href: "/checkout", label: "features" },
+    { href: "/music", label: "music" },
+    { href: "/charts", label: "charts" },
+    { href: "/events", label: "events" },
+    { href: "/features", label: "features" },
   ];
