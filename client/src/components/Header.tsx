@@ -5,7 +5,7 @@ import { useState } from "react";
 const Header = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState<{ username: string } | null>({
-    username: "demo user",
+    username: "Demo User",
   });
 
   const handleLogout = () => {

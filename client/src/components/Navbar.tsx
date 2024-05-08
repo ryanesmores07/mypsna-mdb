@@ -1,4 +1,5 @@
 import { LinksDropdown, Logo, ModeToggle, NavLinks } from ".";
+
 const Navbar = () => {
   return (
     <nav className="bg-muted py-4 sm:px-4">
