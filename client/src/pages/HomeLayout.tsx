@@ -5,7 +5,7 @@ const HomeLayout = () => {
   return (
     <>
       <Header />
-      <body className="text-grey flex-1 h-screen flex flex-col m-0 p-0</>">
+      <body className="text-grey flex-1 h-screen flex-col m-0 p-0">
         <Navbar />
         <div className=" align-element content">
           <Outlet />

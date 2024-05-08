@@ -4,8 +4,9 @@ const SearchSection = () => {
   return (
     <>
       <Search />
-      <MusicContainer />
+      {/*} <MusicContainer />
       <PaginationContainer />
+      */}
     </>
   );
 };
