@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const productionUrl = "https://api.discogs.com/";
+const productionUrl = "/api/v1";
 
 export const customFetch = axios.create({
   baseURL: productionUrl,
