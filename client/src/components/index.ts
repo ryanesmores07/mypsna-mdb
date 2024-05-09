@@ -11,5 +11,6 @@ export { default as Hero } from "./Hero";
 export { default as SearchSection } from "./SearchSection";
 export { default as FormInput } from "./FormInput";
 export { default as Search } from "./Search";
+export { default as DisplayData } from "./DisplayData";
 export { default as MusicContainer } from "./MusicContainer";
 export { default as PaginationContainer } from "./PaginationContainer";

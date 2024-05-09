@@ -4,7 +4,7 @@ type Link = {
   };
   
   export const links: Link[] = [
-    { href: "/", label: "live" },
+    { href: "/", label: "main" },
     { href: "/music", label: "music" },
     { href: "/charts", label: "charts" },
     { href: "/events", label: "events" },
