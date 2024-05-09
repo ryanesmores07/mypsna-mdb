@@ -1,9 +1,10 @@
 const key = "DfDBmgofFwSMdzLNjRAL";
 const secret = "KXFRPyshHlGOKidtXcpeJPVpmcebZTUz";
+const query = "";
 
 export const getDefaultArtists = async (req, res) => {
   try {
-    const url = "https://api.discogs.com/database/search?q=my-chemical-romance";
+    const url = `https://api.discogs.com/database/search?q=${query}`;
     const discogsUrl = `${url}&key=${key}&secret=${secret}`;
 
     const response = await fetch(discogsUrl, {
