@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, useLoaderData } from "react-router-dom";
+import { Form } from "react-router-dom";
 
 interface SearchBarProps {
   onSearch: (query: string) => void; // Modify the onSearch prop

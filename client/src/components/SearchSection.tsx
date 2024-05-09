@@ -1,5 +1,5 @@
 import { Search, DisplayData } from ".";
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const key = "DfDBmgofFwSMdzLNjRAL";
 const secret = "KXFRPyshHlGOKidtXcpeJPVpmcebZTUz";
@@ -20,6 +20,7 @@ const SearchSection = () => {
         },
       });
       const data = await response.json();
+      console.log("Full Data:", data);
       setApiData(data);
     } catch (error) {
       console.error("Error fetching data:", error);
