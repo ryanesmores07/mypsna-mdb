@@ -1,4 +1,4 @@
-import { Search, DisplayData } from ".";
+import { SearchBar, DisplayData } from ".";
 import { useState } from 'react';
 
 const key = "DfDBmgofFwSMdzLNjRAL";
@@ -29,7 +29,7 @@ const SearchSection = () => {
 
   return (
     <>
-      <Search onSearch={handleSearch} />
+      <SearchBar onSearch={handleSearch} />
       {apiData && <DisplayData data={apiData} />}
     </>
   );

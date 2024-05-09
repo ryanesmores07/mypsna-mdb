@@ -10,7 +10,7 @@ export { default as ModeToggle } from "./ModeToggle";
 export { default as Hero } from "./Hero";
 export { default as SearchSection } from "./SearchSection";
 export { default as FormInput } from "./FormInput";
-export { default as Search } from "./SearchBar";
+export { default as SearchBar } from "./SearchBar";
 export { default as DisplayData } from "./DisplayData";
 export { default as MusicContainer } from "./MusicContainer";
 export { default as PaginationContainer } from "./PaginationContainer";
