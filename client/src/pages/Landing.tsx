@@ -14,13 +14,13 @@ import { LoaderFunction } from "react-router-dom";
 export const loader: LoaderFunction = async ({
   request,
 }): Promise<ArtistSearchResponse> => {
-  const params = Object.fromEntries([
-    ...new URL(request.url).searchParams.entries(),
-  ]);
+  // const params = Object.fromEntries([
+  //   ...new URL(request.url).searchParams.entries(),
+  // ]);
   const response = await customFetch<ArtistSearchResponse>(
     "/getDefaultArtists"
   );
-  return { ...response.data };
+  return response.data;
 };
 
 const Landing = () => {

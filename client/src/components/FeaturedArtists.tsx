@@ -2,9 +2,10 @@ import { useLoaderData } from "react-router-dom";
 import { type ArtistSearchResponse } from "@/utils";
 
 const FeaturedArtists = () => {
-  const { data } = useLoaderData() as ArtistSearchResponse;
+  const data = useLoaderData() as ArtistSearchResponse;
   console.log(data);
-  const { pagination, results } = data;
+
+  const { results } = data;
 
   return (
     <div>
