@@ -1,5 +1,6 @@
 import { Hero, SearchSection } from "@/components";
-import { customFetch } from "@/utils";
+import { FeaturedArtists } from "@/components/";
+import { ArtistSearchResponse, customFetch } from "@/utils";
 import { LoaderFunction } from "react-router-dom";
 
 // export const loader: LoaderFunction = async ({ request }) => {
@@ -10,14 +11,16 @@ import { LoaderFunction } from "react-router-dom";
 //   return { ...response.data, params };
 // };
 
-export const loader: LoaderFunction = async ({ request }) => {
+export const loader: LoaderFunction = async ({
+  request,
+}): Promise<ArtistSearchResponse> => {
   const params = Object.fromEntries([
     ...new URL(request.url).searchParams.entries(),
   ]);
-  const response = await customFetch("/getDefaultArtists");
-  console.log(response);
-
-  return null;
+  const response = await customFetch<ArtistSearchResponse>(
+    "/getDefaultArtists"
+  );
+  return { ...response.data };
 };
 
 const Landing = () => {
@@ -25,6 +28,7 @@ const Landing = () => {
     <>
       <Hero />
       <SearchSection />
+      <FeaturedArtists />
     </>
   );
 };
