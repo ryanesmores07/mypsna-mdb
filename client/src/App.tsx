@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Landing, HomeLayout } from "./pages";
+import { Landing, HomeLayout, Artist } from "./pages";
 import { Error, ErrorElement } from "./components";
 import { loader as landingLoader } from "./pages/Landing";
 
@@ -14,6 +14,15 @@ const router = createBrowserRouter([
         element: <Landing />,
         errorElement: <ErrorElement />,
         loader: landingLoader,
+      },
+      {
+        path: "artist",
+        children: [
+          {
+            path: ":artist",
+            element: <Artist />,
+          },
+        ],
       },
     ],
   },
