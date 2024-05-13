@@ -1,5 +1,5 @@
 import { SearchBar, DisplayData } from ".";
-import { useState } from 'react';
+import { useState } from "react";
 
 const key = "DfDBmgofFwSMdzLNjRAL";
 const secret = "KXFRPyshHlGOKidtXcpeJPVpmcebZTUz";

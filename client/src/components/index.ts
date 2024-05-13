@@ -14,3 +14,4 @@ export { default as SearchBar } from "./SearchBar";
 export { default as DisplayData } from "./DisplayData";
 export { default as MusicContainer } from "./MusicContainer";
 export { default as PaginationContainer } from "./PaginationContainer";
+export { default as FeaturedArtists } from "./FeaturedArtists";
