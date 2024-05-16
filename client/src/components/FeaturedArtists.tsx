@@ -2,13 +2,12 @@ import { useLoaderData, Link } from "react-router-dom";
 import { type ArtistSearchResponse } from "@/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { customFetch } from "@/utils";
-import { useState } from "react";
 
 const FeaturedArtists = () => {
   const data = useLoaderData() as ArtistSearchResponse;
   const { results } = data;
 
-  const handleClick = async (title) => {
+  const handleClick = async (title: string) => {
     try {
       const encodedTitle = encodeURIComponent(title);
 
@@ -30,13 +29,12 @@ const FeaturedArtists = () => {
 
   return (
     <>
-      <div className="container grid grid-cols-5 place-items-center ">
+      <div className="container grid grid-cols-5 place-items-center mt-16">
         {results.map((result) => {
           const { cover_image, title, id } = result;
           return (
-            <Link to={`artist/${title}`}>
+            <Link to={`artist/${id}`} key={id}>
               <Card
-                key={id}
                 className="m-4 w-max h-[300px]"
                 onClick={() => handleClick(title)}
               >
@@ -57,6 +55,7 @@ const FeaturedArtists = () => {
           );
         })}
       </div>
+      {/* <PaginationContainer /> */}
     </>
   );
 };
