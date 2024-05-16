@@ -7,6 +7,10 @@ export type ArtistSearchResponse = {
   results: Results[];
 };
 
+export type ArtistResponse = {
+  data: Results | Artist;
+};
+
 export type Results = {
   cover_image: string;
   id: number;
@@ -24,4 +28,22 @@ export type Pagination = {
   pages: number;
   per_page: number;
   urls: string;
+};
+
+export type Artist = {
+  name: string;
+  id: number;
+  resource_url: string;
+  uri: string;
+  releases_url: string;
+  profile?: string;
+  urls?: string[];
+  images?: {
+    type: string;
+    uri: string;
+    resource_url: string;
+    uri150: string;
+    width: number;
+    height: number;
+  }[];
 };
