@@ -1,13 +1,14 @@
-import { useLoaderData, Link } from "react-router-dom";
-import { type ArtistSearchResponse } from "@/utils";
+import { useLandingContext } from "@/pages/Landing";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
-const FeaturedArtists = () => {
-  const { pagination, results } = useLoaderData() as ArtistSearchResponse;
+const QueryResults = () => {
+  const { queryResults } = useLandingContext();
+  console.log(queryResults);
 
   return (
     <>
-      <div className="container grid grid-cols-5 place-items-center mt-16">
+      {/* <div className="container grid grid-cols-5 place-items-center mt-16">
         {results.map((result) => {
           const { cover_image, title, id } = result;
           return (
@@ -29,9 +30,9 @@ const FeaturedArtists = () => {
             </Link>
           );
         })}
-      </div>
+      </div> */}
       {/* <PaginationContainer /> */}
     </>
   );
 };
-export default FeaturedArtists;
+export default QueryResults;
