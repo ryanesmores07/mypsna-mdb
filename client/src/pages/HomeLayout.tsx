@@ -10,8 +10,8 @@ const HomeLayout = () => {
         <div className=" align-element content">
           <Outlet />
         </div>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };

@@ -4,7 +4,7 @@ export const getDefaultArtists = async (req, res) => {
   const query = req.query.search ? req.query.search : "";
 
   try {
-    const url = `https://api.discogs.com/database/search?q=${query}`;
+    const url = `https://api.discogs.com/database/search?q=${query}&type=artist`;
     const discogsUrl = `${url}&key=${key}&secret=${secret}&page=&per_page=10`;
 
     const response = await fetch(discogsUrl, {
