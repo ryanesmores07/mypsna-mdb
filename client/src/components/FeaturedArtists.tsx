@@ -1,31 +1,9 @@
 import { useLoaderData, Link } from "react-router-dom";
 import { type ArtistSearchResponse } from "@/utils";
 import { Card, CardContent } from "@/components/ui/card";
-import { customFetch } from "@/utils";
 
 const FeaturedArtists = () => {
-  const data = useLoaderData() as ArtistSearchResponse;
-  const { results } = data;
-
-  const handleClick = async (title: string) => {
-    try {
-      const encodedTitle = encodeURIComponent(title);
-
-      const response = await customFetch(
-        `/getDefaultArtists?title=${encodedTitle}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      console.log("Server response:", response);
-    } catch (error) {
-      console.error("Error sending request:", error);
-    }
-  };
+  const { pagination, results } = useLoaderData() as ArtistSearchResponse;
 
   return (
     <>
@@ -34,10 +12,7 @@ const FeaturedArtists = () => {
           const { cover_image, title, id } = result;
           return (
             <Link to={`artist/${id}`} key={id}>
-              <Card
-                className="m-4 w-max h-[300px]"
-                onClick={() => handleClick(title)}
-              >
+              <Card className="m-4 w-max h-[300px]">
                 <CardContent className="p-4">
                   <img
                     src={cover_image}
