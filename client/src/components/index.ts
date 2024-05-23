@@ -16,4 +16,3 @@ export { default as MusicContainer } from "./MusicContainer";
 export { default as PaginationContainer } from "./PaginationContainer";
 export { default as FeaturedArtists } from "./FeaturedArtists";
 export { default as SearchInput } from "./SearchInput";
-export { default as QueryResults } from "./QueryResults";
