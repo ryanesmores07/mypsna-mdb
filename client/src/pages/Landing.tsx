@@ -32,7 +32,6 @@ const LandingContext = createContext();
 
 const Landing = () => {
   const data = useLoaderData();
-
   return (
     <LandingContext.Provider value={{ data }}>
       <Hero />
