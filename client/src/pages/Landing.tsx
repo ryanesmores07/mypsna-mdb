@@ -1,8 +1,8 @@
-import { Hero, QueryResults, SearchSection } from "@/components";
+import { Hero, SearchSection } from "@/components";
 import { FeaturedArtists } from "@/components/";
 import { ArtistSearchResponse, customFetch } from "@/utils";
 import { LoaderFunction, useLoaderData } from "react-router-dom";
-import { useContext, createContext, useState } from "react";
+import { useContext, createContext } from "react";
 
 // export const loader: LoaderFunction = async ({ request }) => {
 //   const params = Object.fromEntries([
