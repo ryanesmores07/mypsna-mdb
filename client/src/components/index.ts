@@ -15,3 +15,4 @@ export { default as MusicContainer } from "./MusicContainer";
 export { default as FeaturedArtists } from "./FeaturedArtists";
 export { default as SearchInput } from "./SearchInput";
 export { default as PageBtnContainer } from "./PageBtnContainer";
+export { default as ArtistInfo } from "./ArtistInfo";

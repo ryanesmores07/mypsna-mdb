@@ -14,7 +14,7 @@ const FeaturedArtists = () => {
   } = pagination;
 
   return (
-    <section className="px-32">
+    <section className="px-24">
       <h5 className="text-2xl">
         {totalPages.toLocaleString()} Result{artists > 1 && "s"}
       </h5>
@@ -23,7 +23,7 @@ const FeaturedArtists = () => {
           const { cover_image, title, id } = result;
           return (
             <Link to={`artist/${id}`} key={id}>
-              <Card className="m-4 w-max h-[300px] ">
+              <Card className="m-4 w-full h-[300px] ">
                 <CardContent className="p-4">
                   <img
                     src={cover_image}

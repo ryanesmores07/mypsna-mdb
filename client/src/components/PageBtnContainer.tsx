@@ -89,6 +89,7 @@ const PageBtnContainer = () => {
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
+            className="cursor-default"
             onClick={() => {
               let prevPage = currentPage - 1;
               if (prevPage < 1) prevPage = numOfPages;
@@ -99,6 +100,7 @@ const PageBtnContainer = () => {
         <PaginationItem>{renderPageButtons()}</PaginationItem>
         <PaginationItem>
           <PaginationNext
+            className="cursor-default"
             onClick={() => {
               let nextPage = currentPage + 1;
               if (nextPage > numOfPages) nextPage = 1;
