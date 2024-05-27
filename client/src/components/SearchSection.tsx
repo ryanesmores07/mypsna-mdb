@@ -8,7 +8,7 @@ const secret = "KXFRPyshHlGOKidtXcpeJPVpmcebZTUz";
 const SearchSection = () => {
   return (
     <>
-      <Form className="border rounded-md px-8 py-4 grid gap-4 grid-cols-[auto_auto] place-content-center place-items-center">
+      <Form className="rounded-md px-8 py-4 grid gap-4 grid-cols-[auto_auto] place-content-center place-items-center">
         <SearchInput
           type="search"
           label="Enter Artist"

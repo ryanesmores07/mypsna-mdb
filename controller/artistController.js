@@ -1,15 +1,19 @@
-const key = "DfDBmgofFwSMdzLNjRAL";
-const secret = "KXFRPyshHlGOKidtXcpeJPVpmcebZTUz";
+import * as dotenv from "dotenv";
+dotenv.config();
+const key = process.env.DISCOGS_KEY;
+const secret = process.env.DISCOGS_SECRET;
+
 export const getDefaultArtists = async (req, res) => {
   const query = req.query.search ? req.query.search : "";
+  const page = req.query.page ? req.query.page : "";
 
   try {
-    const url = `https://api.discogs.com/database/search?q=${query}&type=artist`;
-    const discogsUrl = `${url}&key=${key}&secret=${secret}&page=&per_page=10`;
+    const url = `https://api.discogs.com/database/search?q=${query}&type=artist&page=${page}&per_page=10`;
+    console.log(url);
 
-    const response = await fetch(discogsUrl, {
+    const response = await fetch(url, {
       headers: {
-        "User-Agent": "MyDiscogsApp/1.0",
+        "User-Agent": "myPSNA.db/1.0 (eesmores@fab.pasona.tech)",
         Accept: "application/json",
         Authorization: `Discogs key=${key}, secret=${secret}`,
       },
