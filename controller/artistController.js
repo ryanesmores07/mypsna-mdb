@@ -4,12 +4,26 @@ const key = process.env.DISCOGS_KEY;
 const secret = process.env.DISCOGS_SECRET;
 
 export const getDefaultArtists = async (req, res) => {
-  const query = req.query.search ? req.query.search : "";
-  const page = req.query.page ? req.query.page : "";
+  const params = {
+    q: req.query.search || "",
+    page: req.query.page || "1",  // Default to page 1 if not specified
+    type: req.query.type || "",
+    title: req.query.title || "",
+    release_title: req.query.release_title || "",
+    credit: req.query.credit || "",
+    artist: req.query.artist || "",
+    anv: req.query.anv || "",
+    label: req.query.label || "",
+    genre: req.query.genre || "",
+    style: req.query.style || "",
+    country: req.query.country || "",
+  };
+
+  // Filter out empty parameters
+  const filteredParams = Object.fromEntries(Object.entries(params).filter(([_, value]) => value));
 
   try {
-    const url = `https://api.discogs.com/database/search?q=${query}&type=artist&page=${page}&per_page=10`;
-    console.log(url);
+    const url = `https://api.discogs.com/database/search?${new URLSearchParams(filteredParams).toString()}&per_page=10`;
 
     const response = await fetch(url, {
       headers: {
@@ -19,12 +33,9 @@ export const getDefaultArtists = async (req, res) => {
       },
     });
 
-    // Access the rate limit headers
     const rateLimit = response.headers.get("X-Discogs-Ratelimit");
     const rateLimitUsed = response.headers.get("X-Discogs-Ratelimit-Used");
-    const rateLimitRemaining = response.headers.get(
-      "X-Discogs-Ratelimit-Remaining"
-    );
+    const rateLimitRemaining = response.headers.get("X-Discogs-Ratelimit-Remaining");
 
     console.log("X-Discogs-Ratelimit:", rateLimit);
     console.log("X-Discogs-Ratelimit-Used:", rateLimitUsed);

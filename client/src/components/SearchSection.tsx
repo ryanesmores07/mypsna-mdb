@@ -2,9 +2,6 @@ import { Form } from "react-router-dom";
 import { SearchInput } from ".";
 import { Button } from "./ui/button";
 
-const key = "DfDBmgofFwSMdzLNjRAL";
-const secret = "KXFRPyshHlGOKidtXcpeJPVpmcebZTUz";
-
 const SearchSection = () => {
   return (
     <>

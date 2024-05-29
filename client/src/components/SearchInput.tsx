@@ -1,7 +1,14 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-const SearchInput = ({ label, name, type, defaultValue }) => {
+interface SearchInputProps {
+  label?: string;
+  name: string;
+  type: string;
+  defaultValue?: string;
+}
+
+const SearchInput: React.FC<SearchInputProps> = ({ label, name, type, defaultValue }) => {
   return (
     <div className="mb-2 w-72">
       <Label className="capitalize" htmlFor={name}>

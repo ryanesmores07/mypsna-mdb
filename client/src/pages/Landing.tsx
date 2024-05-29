@@ -1,16 +1,8 @@
-import { Hero, SearchSection } from "@/components";
+import { Hero, SearchSection, AdvSearch } from "@/components";
 import { FeaturedArtists } from "@/components/";
 import { ArtistSearchResponse, customFetch } from "@/utils";
 import { LoaderFunction, useLoaderData } from "react-router-dom";
 import { useContext, createContext } from "react";
-
-// export const loader: LoaderFunction = async ({ request }) => {
-//   const params = Object.fromEntries([
-//     ...new URL(request.url).searchParams.entries(),
-//   ]);
-//   const response = await customFetch(url, { params });
-//   return { ...response.data, params };
-// };
 
 export const loader: LoaderFunction = async ({
   request,
@@ -36,9 +28,11 @@ const Landing = () => {
     <LandingContext.Provider value={{ data }}>
       <Hero />
       <SearchSection />
+      <AdvSearch />
       <FeaturedArtists />
     </LandingContext.Provider>
   );
 };
+
 export default Landing;
 export const useLandingContext = () => useContext(LandingContext);
