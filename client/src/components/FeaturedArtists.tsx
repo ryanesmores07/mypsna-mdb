@@ -7,7 +7,6 @@ const FeaturedArtists = () => {
   const { pagination, results } = useLoaderData() as ArtistSearchResponse;
 
   const {
-    page: currentPage,
     pages: numOfPages,
     per_page: artists,
     items: totalPages,
