@@ -16,4 +16,5 @@ export { default as FeaturedArtists } from "./FeaturedArtists";
 export { default as SearchInput } from "./SearchInput";
 export { default as PageBtnContainer } from "./PageBtnContainer";
 export { default as ArtistInfo } from "./ArtistInfo";
-export { default as AdvSearch } from "./AdvSearch"
+export { default as AdvSearch } from "./AdvSearch";
+export { default as SubmitBtn } from "./SubmitBtn";
