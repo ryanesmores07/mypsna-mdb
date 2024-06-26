@@ -1,10 +1,13 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Landing, HomeLayout, Artist } from "./pages";
+import { Landing, HomeLayout, Artist, Login, Register } from "./pages";
 import { Error, ErrorElement } from "./components";
 
 // Loaders
 import { loader as landingLoader } from "./pages/Landing";
 import { loader as artistLoader } from "./pages/Artist";
+import { action as registerUser } from "./pages/Register";
+import { action as loginUser } from "./pages/Login";
+import { store } from "./store";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +30,18 @@ const router = createBrowserRouter([
             loader: artistLoader,
           },
         ],
+      },
+      {
+        path: "login",
+        element: <Login />,
+        errorElement: <Error />,
+        action: loginUser(store),
+      },
+      {
+        path: "register",
+        element: <Register />,
+        errorElement: <Error />,
+        action: registerUser,
       },
     ],
   },

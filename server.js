@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
   res.send("Hello, Express with ES Modules!");
 });
 
+
 app.use("/api/v1/", artistRouter);
 
 // Start the server and listen on the specified port
