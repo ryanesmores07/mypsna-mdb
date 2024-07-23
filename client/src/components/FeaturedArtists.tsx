@@ -2,6 +2,7 @@ import { useLoaderData, Link } from "react-router-dom";
 import { type ArtistSearchResponse } from "@/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import PageBtnContainer from "./PageBtnContainer";
+import { getUserLanguage } from '../lib/languageDetect';
 
 const FeaturedArtists = () => {
   const { pagination, results } = useLoaderData() as ArtistSearchResponse;
@@ -12,11 +13,20 @@ const FeaturedArtists = () => {
     items: totalPages,
   } = pagination;
 
+  const userLanguage = getUserLanguage();
+  const isJp = userLanguage === "ja";
+
   return (
     <section className="px-24">
+      {isJp ? (
       <h5 className="text-2xl">
+        {totalPages.toLocaleString()} 結果
+      </h5>
+      ) : (
+        <h5 className="text-2xl">
         {totalPages.toLocaleString()} Result{artists > 1 && "s"}
       </h5>
+      )}
       <div className="container grid gap-4 md:grid-cols-3 lg:grid-cols-5 place-items-center mt-16 mb-12">
         {results.map((result) => {
           const { cover_image, title, id } = result;
