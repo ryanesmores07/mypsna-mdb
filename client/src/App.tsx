@@ -1,10 +1,18 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Landing, HomeLayout, Artist, Login, Register } from "./pages";
+import {
+  Landing,
+  HomeLayout,
+  Artist,
+  Login,
+  Register,
+  Rankings,
+} from "./pages";
 import { Error, ErrorElement } from "./components";
 
 // Loaders
 import { loader as landingLoader } from "./pages/Landing";
 import { loader as artistLoader } from "./pages/Artist";
+import { loader as rankingsLoader } from "./pages/Rankings";
 import { action as registerUser } from "./pages/Register";
 import { action as loginUser } from "./pages/Login";
 import { store } from "./store";
@@ -42,6 +50,12 @@ const router = createBrowserRouter([
         element: <Register />,
         errorElement: <Error />,
         action: registerUser,
+      },
+      {
+        path: "rankings",
+        element: <Rankings />,
+        errorElement: <Error />,
+        loader: rankingsLoader,
       },
     ],
   },
