@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from "./ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { getUserLanguage } from '../lib/languageDetect';
 
 interface SearchParams {
     search: string;
@@ -73,17 +74,25 @@ const AdvSearch: React.FC = () => {
     };
 
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    const userLanguage = getUserLanguage();
+    const isJp = userLanguage === "ja";
 
     return (
         <>
             <div className="rounded-md px-8 py-4 grid gap-4 grid-cols-[auto_auto] place-content-center place-items-center">
-                <Button className="self-end mb-2" onClick={toggleMenu}>
-                    {isOpen ? 'Close' : 'Advanced Search'}
-                </Button>
+                {isJp ? (
+                    <Button className="self-end mb-2" onClick={toggleMenu}>
+                        {isOpen ? '閉じる' : '詳細検索'}
+                    </Button>
+                ) : (
+                    <Button className="self-end mb-2" onClick={toggleMenu}>
+                        {isOpen ? 'Close' : 'Advanced Search'}
+                    </Button>
+                )}
             </div>
 
             {isOpen && (
-                <form className="rounded-md px-8 py-4 grid gap-4 grid-cols-1 place-items-center" onSubmit={(e) => { e.preventDefault(); handleSubmit(searchParams); }}>
+                <form className="rounded-md px-12 py-4 grid gap-4 grid-cols-3 place-items-center" onSubmit={(e) => { e.preventDefault(); handleSubmit(searchParams); }}>
                     {Object.keys(searchParams).map((param) => (
                         <div key={param} className="mb-2 w-72">
                             <Label htmlFor={param}>Enter {param.replace('_', ' ')}: </Label>
@@ -96,8 +105,7 @@ const AdvSearch: React.FC = () => {
                             />
                         </div>
                     ))}
-                    <Button type="submit">Search</Button>
-                    <div className="flex flex-wrap gap-1 justify-center">
+                    <div className="col-span-3 flex flex-wrap gap-1 justify-center">
                         {letters.map(letter => (
                             <Button
                                 key={letter}
@@ -108,6 +116,9 @@ const AdvSearch: React.FC = () => {
                                 {letter}
                             </Button>
                         ))}
+                    </div>
+                    <div className="col-span-3">
+                        {isJp ? (<Button type="submit">検索</Button>) : (<Button type="submit">Search</Button>)}
                     </div>
                 </form>
             )}

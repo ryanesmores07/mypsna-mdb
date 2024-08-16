@@ -1,11 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { useAppDispatch, useAppSelector } from "@/hooks";
-
+import { getUserLanguage } from '../lib/languageDetect';
 import { logoutUser } from "../features/user/userSlice";
 import { useToast } from "./ui/use-toast";
 
 function Header() {
+  const userLanguage = getUserLanguage();
+  const isJp = userLanguage === "ja";
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { toast } = useToast();
@@ -23,19 +25,22 @@ function Header() {
 
         {user ? (
           <div className="flex gap-x-2 sm:gap-x-8 items-center">
-            <p className="text-xs sm:text-sm">Hello, {user.username}</p>
-            <Button variant="link" size="sm" onClick={handleLogout}>
+            {isJp ? (<p className="text-xs sm:text-sm">こんにちは, {user.username}</p>) : (<p className="text-xs sm:text-sm">Hello, {user.username}</p>)}
+            {isJp ? (<Button variant="link" size="sm" onClick={handleLogout}>
+              ログアウト
+            </Button>) : (<Button variant="link" size="sm" onClick={handleLogout}>
               Logout
-            </Button>
+            </Button>)}
+
           </div>
         ) : (
           <div className="flex gap-x-6 justify-center items-center ">
             <Button asChild variant="link" size="sm">
-              <Link to="/login">Sign in / Guest</Link>
+              {isJp ? (<Link to="/login">サインイン / ゲスト</Link>) : (<Link to="/login">Sign in / Guest</Link>)}
             </Button>
 
             <Button asChild variant="link" size="sm">
-              <Link to="/register">Register</Link>
+            {isJp ? (<Link to="/register">登録</Link>) : (<Link to="/register">Register</Link>)}
             </Button>
           </div>
         )}
